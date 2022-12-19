@@ -19,4 +19,5 @@ export class TrackerService {
   public getdata(){
     return this.http.get(this.url, {headers : this.httpOptions.headers});
   }
+  
 }
