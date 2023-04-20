@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackerService } from '../tracker.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-crypto-prices',
@@ -8,7 +9,7 @@ import { TrackerService } from '../tracker.service';
 })
 export class CryptoPricesComponent implements OnInit {
 
-  public newdata: any;
+  public newdata: any = [];
   public logos: any;
 
   constructor(private service: TrackerService) { }

@@ -1,23 +1,16 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrackerService {
-  public url='https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+  public url='https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h%2C7d&locale=de';
 
   constructor(private http:HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'contentType': 'aplication/json',
-      'X-CMC_PRO_API_KEY': 'c8bd1450-17c3-4614-8888-5f1d4ab6dd89'
-    })
-  }
-
   public getdata(){
-    return this.http.get(this.url, {headers : this.httpOptions.headers});
+    return this.http.get(this.url);
   }
   
 }
