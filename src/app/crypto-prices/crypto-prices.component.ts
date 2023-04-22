@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TrackerService } from '../tracker.service';
-import {MatTableDataSource} from '@angular/material/table';
+
+export interface PeriodicElement {
+  position: number;
+  name: string;
+  price: number;
+  change24: number;
+  change7: number;
+  cap: number;
+  volume: number;
+  supply: number;
+}
 
 @Component({
   selector: 'app-crypto-prices',
@@ -11,6 +21,7 @@ export class CryptoPricesComponent implements OnInit {
 
   public newdata: any = [];
   public logos: any;
+  displayedColumns: string[] = ['position', 'name', 'price', 'change24', 'change7', 'cap', 'volume', 'supply'];
 
   constructor(private service: TrackerService) { }
 

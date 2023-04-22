@@ -12,7 +12,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import { StartComponent } from './start/start.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatMenuModule,
     MatCardModule,
     HttpClientModule,
-    MatFormFieldModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,17 +2,28 @@
     width: 100vw;
     height: calc(100vh - 65px);
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 
     mat-card{
-        width: 150px;
-        height: 250px;
-        margin: 8px;
+        width: 90vw;
+        height: 30px;
+        margin: 5px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-        img{
-            width: 100px;
-            height: 100px;
+        .icon{
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        span{
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        th{
+            font-size: 16px;
         }
     }
 }
@@ -22,4 +33,28 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+// columns design
+
+.c1{
+    width: 5vw;
+    text-align: center;
+}
+.c2{
+    width: 15vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+.c3{
+    width: 10vw;
+    // text-align: center;
+    text-align: end;
+}
+.c4{
+    width: 6vw;
+    // text-align: center;
+    text-align: end;
 }
