@@ -5,30 +5,32 @@
         <tr>
           <th class="c1">#</th>
           <th class="c2">Coin</th>
-          <th class="c3">Price</th>
+          <th class="c4">Price</th>
           <th class="c4">24h %</th>
           <th class="c4">7d %</th>
           <th class="c3">Mkt Cap</th>
           <th class="c3">24h Volume</th>
           <th class="c3">Circ. Supply</th>
-          <th class="c3">Last 7 Days</th>
+          <th class="chart">Last 7 Days</th>
         </tr>
       </table>
     </mat-card-content>
   </mat-card>
 
-  <mat-card *ngFor="let item of newdata; let i=index">
-      <table class="table" *ngIf="i<100">
+  <mat-card *ngFor="let coin of coins; let i=index">
+      <table class="table" *ngIf="i<20">
         <tr>
-          <td class="c1">{{ item.market_cap_rank }}</td>
-          <td class="c2"><img class="icon" src="{{ item.image }}"/> {{ item.name }} <span> {{ item.symbol }} </span></td>
-          <td class="c3">{{ "$"+ item.current_price.toFixed(2)}}</td>
-          <td [ngClass]="item.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'" class="c4">{{ item.price_change_percentage_24h.toFixed(1)+"%" }}</td>
-          <td [ngClass]="item.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'" class="c4">{{ item.price_change_percentage_7d_in_currency.toFixed(1)+"%" }}</td>
-          <td class="c3">{{ "$"+ item.market_cap.toLocaleString() }}</td>
-          <td class="c3">{{ "$"+ item.total_volume.toLocaleString() }}</td>
-          <td class="c3">{{ "$"+ item.circulating_supply.toLocaleString(undefined, {maximumFractionDigits: 0}) }}</td>
-          <td class="c3">{{ item.chart }}</td>
+          <td class="c1">{{ coin.market_cap_rank }}</td>
+          <td class="c2 font-big"><img class="icon" src="{{ coin.image }}"/> {{ coin.name }} <span> {{ coin.symbol }} </span></td>
+          <td class="c4">{{ "$"+ coin.current_price.toFixed(2)}}</td>
+          <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'" class="c4">{{ coin.price_change_percentage_24h.toFixed(2)+"%" }}</td>
+          <td [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'" class="c4">{{ ((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100).toFixed(2)+"%" }}</td>
+          <td class="c3">{{ "$"+ coin.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2}) }}</td>
+          <td class="c3">{{ "$"+ coin.total_volume.toLocaleString(undefined, {maximumFractionDigits: 2}) }}</td>
+          <td class="c3">{{ "$"+ coin.circulating_supply.toLocaleString(undefined, {maximumFractionDigits: 0}) }}</td>
+        <td class="chart">
+            <canvas id="myChart{{i}}" ></canvas>
+          </td>
         </tr>
       </table>
   </mat-card>

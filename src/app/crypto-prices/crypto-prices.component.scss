@@ -1,34 +1,52 @@
-.main-container{
+.main-container {
     width: 100vw;
     height: calc(100vh - 65px);
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    mat-card{
+    mat-card {
         width: 90vw;
-        height: 30px;
+        height: 100px;
         margin: 5px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-        .icon{
+        tr{
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        .icon {
             width: 20px;
             height: 20px;
             margin-right: 8px;
         }
 
-        span{
+        span {
             margin-left: 5px;
             font-size: 12px;
         }
 
-        th{
+        th {
             font-size: 16px;
+        }
+
+        .chart {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 15vw;
+            text-align: end;
+
+            canvas {
+                max-height: 97%;
+                padding-left: 16px;
+            }
         }
     }
 }
 
-.center{
+.center {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,23 +55,31 @@
 
 // columns design
 
-.c1{
-    width: 5vw;
-    text-align: center;
+.c1 {
+    width: 3vw;
+    text-align: left;
 }
-.c2{
+
+.c2 {
     width: 15vw;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
 }
-.c3{
-    width: 10vw;
+
+.font-big{
+    font-size: 20px !important;
+    font-weight: 800 !important;
+}
+
+.c3 {
+    width: 12vw;
     // text-align: center;
     text-align: end;
 }
-.c4{
+
+.c4 {
     width: 6vw;
     // text-align: center;
     text-align: end;
