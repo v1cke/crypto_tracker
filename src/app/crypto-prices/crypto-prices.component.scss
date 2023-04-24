@@ -1,5 +1,4 @@
 .main-container {
-    // width: 100vw;
     height: calc(100vh - 65px);
     display: flex;
     flex-direction: column;
@@ -43,7 +42,6 @@
                 width: 15px;
                 height: 15px;
             }
-
         }
 
         span {
@@ -53,7 +51,6 @@
             @media screen and (max-width: 1000px) {
                 margin-left: 3px;
                 font-size: 8px;
-
                 @media screen and (max-width: 800px) {
                     display: none;
                 }
@@ -78,10 +75,8 @@
 
             @media screen and (max-width: 800px) {
                 width: 15vw;
-
                 @media screen and (max-width: 550px) {
                     width: 25vw;
-
                     @media screen and (max-width: 550px) {
                         width: 25vw;
                     }
@@ -130,10 +125,8 @@
     @media screen and (max-width: 800px) {
         width: 15vw;
         margin-right: 2vw;
-
         @media screen and (max-width: 550px) {
             width: 20vw;
-
             @media screen and (max-width: 400px) {
                 width: 22vw;
             }
@@ -148,7 +141,6 @@
     @media screen and (max-width: 1000px) {
         font-size: 16px !important;
         font-weight: 500 !important;
-
         @media screen and (max-width: 550px) {
             font-size: 12px !important;
             font-weight: 500 !important;
@@ -176,10 +168,8 @@
 
     @media screen and (max-width: 800px) {
         width: 9vw;
-
         @media screen and (max-width: 550px) {
             width: 10vw;
-
             @media screen and (max-width: 400px) {
                 width: 15vw;
             }

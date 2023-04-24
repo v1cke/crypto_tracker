@@ -18,8 +18,6 @@ export class CryptoPricesComponent implements OnInit {
 
   public url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=true&price_change_percentage=24h%2C%207d&locale=de';
   public coins: any = [];
-  public chartsData: any = [];
-  public coinUrl: any = [];
 
   constructor(private http: HttpClient) { }
 
@@ -30,17 +28,15 @@ export class CryptoPricesComponent implements OnInit {
   async ngOnInit() {
     await this.getdata().subscribe(res => {
       this.coins = res;
-      console.log(this.coins);
       setTimeout(() => {
         this.createChart();
-      }, 3000);
+      }, 1000);
     });
   }
 
   async createChart() {
     await this.coins.forEach((coin) => {
       let i = this.coins.indexOf(coin);
-      // console.log(coin);
       this.addChart(coin, i);
     })
   }
@@ -59,7 +55,6 @@ export class CryptoPricesComponent implements OnInit {
     }
 
     new Chart(("myChart" + i), {
-      // new Chart(("myChart"), {
       type: 'line',
       data: {
         labels: xAxis,
@@ -67,6 +62,7 @@ export class CryptoPricesComponent implements OnInit {
           label: '',
           data: yAxis,
           fill: false,
+          borderWidth: 1,
           borderColor: bordercolor,
         }]
       },
@@ -86,7 +82,7 @@ export class CryptoPricesComponent implements OnInit {
         },
         plugins: {
           legend: {
-            display: false // This hides all text in the legend and also the labels.
+            display: false
           },
         }
       }
