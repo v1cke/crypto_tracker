@@ -7,7 +7,7 @@
 
     mat-card {
         width: 90vw;
-        height: 100px;
+        height: 50px;
         margin: 5px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
@@ -34,12 +34,12 @@
         .chart {
             display: flex;
             justify-content: flex-end;
-            align-items: center;
+            align-items: flex-start;
             width: 15vw;
-            text-align: end;
+            // text-align: start;
 
             canvas {
-                max-height: 97%;
+                max-height: 50px;
                 padding-left: 16px;
             }
         }
@@ -75,12 +75,10 @@
 
 .c3 {
     width: 12vw;
-    // text-align: center;
     text-align: end;
 }
 
 .c4 {
     width: 6vw;
-    // text-align: center;
     text-align: end;
 }

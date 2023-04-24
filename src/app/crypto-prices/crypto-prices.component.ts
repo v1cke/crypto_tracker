@@ -50,21 +50,56 @@ export class CryptoPricesComponent implements OnInit {
   async createChart() {
     await this.coins.forEach((coin) => {
       let i = this.coins.indexOf(coin);
-      console.log(coin);
+      // console.log(coin);
       this.addChart(coin, i);
     })
   }
 
   async addChart(coin, i) {
+    let bordercolor = 'green';
+    let xAxis = [];
+    let yAxis = [];
+    for (let j = 0; j < coin.sparkline_in_7d.price.length; j++) {
+      let price = coin.sparkline_in_7d.price[j];
+      xAxis.push(j)
+      yAxis.push(price);
+
+    }
+    if (yAxis.at(-1) < yAxis.at(0)) {
+      bordercolor = 'red';
+    }
+
     new Chart(("myChart" + i), {
+      // new Chart(("myChart"), {
       type: 'line',
       data: {
+        labels: xAxis,
         datasets: [{
           label: '',
-          data: [coin.sparkline_in_7d.price]
+          data: yAxis,
+          fill: false,
+          borderColor: bordercolor,
         }]
       },
-      options: { 
+      options: {
+        elements: {
+          point: {
+            radius: 0
+          }
+        },
+        scales: {
+          x: {
+            display: false
+          },
+          y: {
+            display: false
+          },
+        },
+        plugins: {
+          legend: {
+            display: false // This hides all text in the legend and also the labels.
+          },
+        }
       }
     });
   }

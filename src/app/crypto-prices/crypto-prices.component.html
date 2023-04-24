@@ -29,9 +29,9 @@
           <td class="c3">{{ "$"+ coin.total_volume.toLocaleString(undefined, {maximumFractionDigits: 2}) }}</td>
           <td class="c3">{{ "$"+ coin.circulating_supply.toLocaleString(undefined, {maximumFractionDigits: 0}) }}</td>
         <td class="chart">
-            <canvas id="myChart{{i}}" ></canvas>
+            <canvas id="myChart{{i}}" [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'"></canvas>
           </td>
         </tr>
       </table>
-  </mat-card>
+    </mat-card>
 </div>
