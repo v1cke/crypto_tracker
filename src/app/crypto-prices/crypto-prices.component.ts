@@ -8,16 +8,6 @@ Injectable({
   providedIn: 'root'
 })
 
-// export interface PeriodicElement {
-//   position: number;
-//   name: string;
-//   price: number;
-//   change24: number;
-//   change7: number;
-//   cap: number;
-//   volume: number;
-//   supply: number;
-// }
 
 @Component({
   selector: 'app-crypto-prices',
@@ -63,7 +53,6 @@ export class CryptoPricesComponent implements OnInit {
       let price = coin.sparkline_in_7d.price[j];
       xAxis.push(j)
       yAxis.push(price);
-
     }
     if (yAxis.at(-1) < yAxis.at(0)) {
       bordercolor = 'red';

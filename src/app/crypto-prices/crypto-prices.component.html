@@ -6,11 +6,11 @@
           <th class="c1">#</th>
           <th class="c2">Coin</th>
           <th class="c4">Price</th>
-          <th class="c4">24h %</th>
+          <th class="c4 resp3">24h %</th>
           <th class="c4">7d %</th>
-          <th class="c3">Mkt Cap</th>
-          <th class="c3">24h Volume</th>
-          <th class="c3">Circ. Supply</th>
+          <th class="c3 resp1">Mkt Cap</th>
+          <th class="c3 resp2">24h Volume</th>
+          <th class="c3 margin-right resp1">Circ. Supply</th>
           <th class="chart">Last 7 Days</th>
         </tr>
       </table>
@@ -23,12 +23,12 @@
           <td class="c1">{{ coin.market_cap_rank }}</td>
           <td class="c2 font-big"><img class="icon" src="{{ coin.image }}"/> {{ coin.name }} <span> {{ coin.symbol }} </span></td>
           <td class="c4">{{ "$"+ coin.current_price.toFixed(2)}}</td>
-          <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'" class="c4">{{ coin.price_change_percentage_24h.toFixed(2)+"%" }}</td>
+          <td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success': 'text-danger'" class="c4 resp3">{{ coin.price_change_percentage_24h.toFixed(2)+"%" }}</td>
           <td [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'" class="c4">{{ ((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100).toFixed(2)+"%" }}</td>
-          <td class="c3">{{ "$"+ coin.market_cap.toLocaleString(undefined, {maximumFractionDigits: 2}) }}</td>
-          <td class="c3">{{ "$"+ coin.total_volume.toLocaleString(undefined, {maximumFractionDigits: 2}) }}</td>
-          <td class="c3">{{ "$"+ coin.circulating_supply.toLocaleString(undefined, {maximumFractionDigits: 0}) }}</td>
-        <td class="chart">
+          <td class="c3 resp1">{{ "$"+ (coin.market_cap/1000000).toLocaleString(undefined, {maximumFractionDigits: 0})+ " M" }}</td>
+          <td class="c3 resp2">{{ "$"+ (coin.total_volume/1000000).toLocaleString(undefined, {maximumFractionDigits: 2})+ " M" }}</td>
+          <td class="c3  margin-right resp1">{{ "$"+ (coin.circulating_supply/1000).toLocaleString(undefined, {maximumFractionDigits: 0})+ " K" }}</td>
+        <td class="chart resp2">
             <canvas id="myChart{{i}}" [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'"></canvas>
           </td>
         </tr>
