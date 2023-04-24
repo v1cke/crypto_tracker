@@ -27,7 +27,7 @@
           <td [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'" class="c4">{{ ((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100).toFixed(2)+"%" }}</td>
           <td class="c3 resp1">{{ "$"+ (coin.market_cap/1000000).toLocaleString(undefined, {maximumFractionDigits: 0})+ " M" }}</td>
           <td class="c3 resp2">{{ "$"+ (coin.total_volume/1000000).toLocaleString(undefined, {maximumFractionDigits: 2})+ " M" }}</td>
-          <td class="c3  margin-right resp1">{{ "$"+ (coin.circulating_supply/1000).toLocaleString(undefined, {maximumFractionDigits: 0})+ " K" }}</td>
+          <td class="c3 margin-right resp1">{{ coin.symbol + " " }}{{ (coin.circulating_supply/1000000).toLocaleString(undefined, {maximumFractionDigits: 1})+ " M" }}</td>
         <td class="chart resp2">
             <canvas id="myChart{{i}}" [ngClass]="((coin.sparkline_in_7d.price[167]/coin.sparkline_in_7d.price[0]*100)-100) > 0 ? 'text-success': 'text-danger'"></canvas>
           </td>
